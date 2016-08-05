@@ -47,7 +47,7 @@ let startAt = 0;
 // variables to be used for testing within all resolved request stubs
 let page = 0;
 
-let rejectedRequestStub = function (error = 'this is an error', status = {statusCode: 200}) {
+let rejectedRequestStub = function (error = 'error in rejected stub', status = {statusCode: 200}) {
   return function (options, callback) {
     process.nextTick(function () {
       callback(error, status);
