@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
       alert(INVALID_CREDENTIALS_ERROR_MESSAGE);
       document.getElementById('username').value = '';
       document.getElementById('password').value = '';
-      document.getElementById('teamName').value = '';
     }
   });
 });
