@@ -9,8 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value;
     let teamName = document.getElementById('teamName').value;
-    let credentials = {body: {username: username, password: password, teamName: teamName}};
-
+    let credentials = {username: username, password: password, teamName: teamName};
     if (auth.validate(credentials)) {
       // run submit function
     } else {

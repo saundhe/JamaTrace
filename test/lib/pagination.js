@@ -47,7 +47,7 @@ let startAt = 0;
 // variables to be used for testing within all resolved request stubs
 let page = 0;
 
-let rejectedRequestStub = function (error = 'this is an error', status = {statusCode: 200}) {
+let rejectedRequestStub = function (error = 'error in rejected stub', status = {statusCode: 200}) {
   return function (options, callback) {
     process.nextTick(function () {
       callback(error, status);
@@ -203,7 +203,7 @@ describe('Pagination Module', function () {
         });
       };
       pagination = proxyquire('../../lib/pagination', { 'request': requestStub });
-      expect(pagination('http://dummy:password@sevensource.jamacloud.com/rest/latest/projects', startAt, Number.MAX_SAFE_INTEGER))
+      expect(pagination('http://dummy:dummy@sevensource.jamacloud.com/rest/latest/projects', startAt, Number.MAX_SAFE_INTEGER))
         .to.eventually.be.fulfilled().and.to.have.lengthOf(arrayOfPageData(pages).length).and.to.deep.equal(arrayOfPageData(pages));
     });
     it('should append a new query string if the url already contains a query', () => {
